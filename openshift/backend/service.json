@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+	"name": "backend"
+    },
+    "spec": {
+	"ports": [
+	     {
+		 "name": "web",
+		 "protocol": "TCP",
+		 "port": 80,
+		 "targetPort": 8080,
+		 "nodePort": 0
+	     }
+	],
+	"selector": {
+	    "name": "backend"
+	},
+	"portalIP": "",
+	"type": "ClusterIP",
+	"sessionAffinity": "None"
+    },
+    "status": {
+	"loadBalancer": {}
+    }
+}
+	

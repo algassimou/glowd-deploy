@@ -1,0 +1,16 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+	"name": "frontend",
+	"creationTimestamp": null
+    },
+    "spec": {
+	"host": "glowd.polygon.duckdns.org",
+	"to": {
+	    "kind": "Service",
+	    "name": "frontend"
+	}
+    },
+    "status": {}
+}

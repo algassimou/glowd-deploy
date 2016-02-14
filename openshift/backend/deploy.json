@@ -1,0 +1,44 @@
+{
+    "kind": "DeploymentConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "backend"
+    },
+    "spec": {
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "backend"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "backend",
+                        "image": "registry.polygon.duckdns.org:5000/glowd/backend",
+			"imagePullPolicy": "Always",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+			"env": [
+			    {
+				"name": "GIN_MODE",
+				"value": "release"
+			    }
+			]
+                    }
+                ]
+            }
+        },
+        "replicas": 1,
+        "selector": {
+            "name": "backend"
+        },
+        "strategy": {
+            "type": "Rolling"
+        }
+    }
+}
